@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.ezenplate.www.repository.MemberDAO">
+	<sql id="wh_email">
+		where email=#{email}
+	</sql>
+
+	<select id="selectList" resultType="mvo">
+		select * from member
+		order by mno
+	</select>
+	
+	<select id="selectOne" parameterType="mvo" resultType="mvo">
+		select email, nick_name, grade, mno
+		from member
+		<include refid="wh_email"/> and pwd=#{pwd}
+	</select>
+	
+	<insert id="insert" parameterType="mvo">
+		insert into member(email, pwd, nick_name, user_locate) 
+		values (#{email}, #{pwd}, #{nickName}, #{userLocate})
+	</insert>
+	
+	<select id="selectEmail" parameterType="string" resultType="int">
+		select count(email) from member <include refid="wh_email"/>
+	</select>
+	
+	<select id="selectLastMno" resultType="long">
+		select max(mno) from member
+	</select>
+	
+	<select id="selectMnoMatchEmail" parameterType="string" resultType="long">
+		select mno from member <include refid="wh_email"/>
+	</select>
+	
+	<select id="selectDetail" parameterType="string" resultType="mvo">
+		select * from member <include refid="wh_email"/>
+	</select>
+	
+	<select id="selectListHolic" resultType="mvo">
+		select * from member where grade = 50 order by grade desc
+	</select>
+	<select id="select_mno" resultType="long">
+		select mno from member where email=#{email}
+	</select>
+	
+	<select id="selectTotalCount" resultType="int" parameterType="pgvo">
+		select count(email) from member
+	</select>
+	
+	<update id="gradeUpdate" parameterType="mvo">
+		update member set grade = #{grade} <include refid="wh_email"/>
+	</update>
+	
+	<update id="lastLogin" parameterType="string">
+		update member set last_login = now()
+		where email = #{email}
+	</update>
+	
+	<update id="update" parameterType="mvo">
+		update member set pwd=#{pwd}, nick_name=#{nickName}, user_locate=#{userLocate} <include refid="wh_email"/>
+	</update>
+	
+	<delete id="delete" parameterType="string">
+		delete from member <include refid="wh_email"/>
+	</delete>
+</mapper>

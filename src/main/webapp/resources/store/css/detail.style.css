@@ -1,0 +1,150 @@
+:root{
+    /* colour */
+    --colour-white: #fff;
+    --colour-light-grey: #dad9d9;
+    --colour-grey: #c2c1c1;
+    --colour-dark-grey:#aba8a8;
+    --colour-shadow:#484a49;
+    --colour-background: #f7f7f7;;
+    --colour-shadow-v2: #3838388d;
+    --colour-gradient:#353737;
+    --colour-gradient-v2:#181c1ec3;
+    --colour-black: #111;
+    --colour-main:#ff8a3d;
+    --colour-main-v2:#ffa963cf;
+}
+
+
+ /* photos */
+.swiper-container{
+	margin-top: 15px;
+}
+/* .reserve-block{
+	padding-bottom: 20px;
+} */
+.reserve-block h5 {
+	font-size: 1.688rem;
+}
+.reserve-rating{
+	background:none;
+	color: var(--colour-main);
+	margin-top: -16px;
+	font-size: 1.688rem;
+}
+.reserve-rating > .review_warning{
+	background:none;
+}
+.review_warning > span{
+	color: var(--colour-light-grey);
+}
+.other_info > p{
+	font-size:0.899rem;
+}
+.review_fav{
+	text-align:left;
+	margin-left: 80px;
+}
+.writing_review_btn, .favorite_place_btn{
+	border:none;
+	background:none;
+	color:#b2b8c3;
+}
+.favorite_place_btn:hover, .favorite_place_btn span:hover, 
+.writing_review_btn:hover, .writing_review_btn span:hover{
+	color:var(--colour-main)!important;
+}
+.writing_review_btn span{
+	font-size: 15px !important;
+}
+.writing_review_btn:focus, .favorite_place_btn:focus{
+	border: none;
+    outline:none;
+}
+
+/* info */
+.custom-checkbox{
+	margin:0;
+}
+.store_location{
+	margin-left: 12px;
+}
+.store_tel{
+	margin-left:8px;
+}
+.menuName{
+	margin-left:116px;
+	margin-bottom:2px;
+	color:#737882;
+}
+.foodName{
+	font-size:14px;
+	color:var(--colour-shadow);
+}
+.updateDate {
+	margin-top: 20px;
+	text-align: right;
+	font-size:12px !important;
+}
+
+/* MAP */
+.close-now{
+	color: var(--colour-light-grey) !important;
+}
+.open-now {
+	color: var(--colour-main) !important;
+}
+.btn-contact{
+	background: var(--colour-main) !important;
+	color:var(--colour-white)!important;
+	border:none !important;
+}
+.btn-contact:hover{
+	background: var(--colour-main-v2) !important;
+}
+/* Comment */
+.customer-img > i {
+	text-align:center;
+}
+.customer-review > .modAt{
+	margin-left: -10px;
+	font-size:12px;
+}
+.customer-review > a > h6{
+	font-size: 19px;
+}
+#rate_none{
+	color:var(--colour-light-grey);
+	display: block;
+    float: left;
+    font-size: 13px;
+}
+#rate_yes{
+	color:var(--colour-main);
+	display: block;
+    float: left;
+    font-size: 13px;
+}
+
+
+@media (max-width:1200px){
+	.foodName{
+		padding: 0px;
+	}
+	.menuName{
+		margin-left: 96px;
+	}
+}
+@media (max-width:993px){
+	.menuName{
+		margin-left: 150px;
+	}
+}
+@media (max-width:991px){
+	.menuName{
+		margin-left: 110px;
+	}
+}
+
+
+
+

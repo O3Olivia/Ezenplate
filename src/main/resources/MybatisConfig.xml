@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  <configuration>
+  	<settings>
+  		<setting name="mapUnderscoreToCamelCase" value="true"/>
+  	</settings>
+   	<typeAliases>
+		<typeAlias type="com.ezenplate.www.domain.MemberVO" alias="mvo"/>
+		<typeAlias type="com.ezenplate.www.domain.StoreVO" alias="svo"/>
+		<typeAlias type="com.ezenplate.www.domain.ReviewVO" alias="rvo"/>
+		<typeAlias type="com.ezenplate.www.domain.WantVO" alias="wvo"/>
+		<typeAlias type="com.ezenplate.www.domain.VisitedVO" alias="vvo"/>
+		<typeAlias type="com.ezenplate.www.domain.BoardVO" alias="bvo"/>
+		<typeAlias type="com.ezenplate.www.domain.CommentVO" alias="cvo"/>
+  		<typeAlias type="com.ezenplate.www.domain.FileVO" alias="fvo"/>
+  		<typeAlias type="com.ezenplate.www.domain.PagingVO" alias="pgvo"/>
+  	</typeAliases>
+  </configuration>

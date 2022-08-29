@@ -1,0 +1,472 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<jsp:include page="../common/header.jsp" />
+<jsp:include page="../common/nav.jsp" />
+
+<!-- detail Style CSS-->
+<link rel="stylesheet" href="/resources/store/css/detail.style.css">
+
+<!--============================= BOOKING =============================-->
+<c:set var="now" value="<%=new java.util.Date()%>"></c:set>
+<fmt:formatDate value="${now}" pattern="E" var="today" />
+<c:set var="now_today" value="${today }요일"></c:set>
+<div>
+	<!-- Swiper -->
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<c:choose>
+				<c:when test="${sdto.fileList[0].saveDir eq null }">
+					<a
+						href="../../resources/mylist/photo/사진없음.png" 
+						class="grid image-link"> <img
+						src="../../resources/mylist/photo/사진없음.png" 
+						class="img-fluid">
+					</a>
+				</c:when>
+			</c:choose>
+			<c:forEach items="${sdto.fileList }" var="fvo">
+				<div class="swiper-slide">
+					<a
+						href="/upload/${fn:replace(fvo.saveDir, '\\','/')}/${fvo.uuid}_${fvo.fileName}"
+						class="grid image-link"> <img
+						src="/upload/${fn:replace(fvo.saveDir, '\\','/')}/${fvo.uuid}_${fvo.fileName}"
+						class="img-fluid">
+					</a>
+				</div>
+			</c:forEach>
+
+		</div>
+		<!-- Add Pagination -->
+		<div class="swiper-pagination swiper-pagination-white"></div>
+		<!-- Add Arrows -->
+		<div class="swiper-button-next swiper-button-white"></div>
+		<div class="swiper-button-prev swiper-button-white"></div>
+	</div>
+</div>
+<!--//END BOOKING -->
+<!--============================= RESERVE A SEAT =============================-->
+<section class="reserve-block">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5">
+				<input type="hidden" value="${ses.email }" id="email">
+				<h5 id="store_name">${sdto.svo.sname }</h5>
+				<fmt:parseNumber var="rate" value="${sdto.svo.rateAvg }"
+					integerOnly="true" />
+						<c:choose>
+						<c:when test="${sdto.svo.rateAvg < 2.0 }">
+							<div class="reserve-rating review_warning">
+								<span>${Math.round(sdto.svo.rateAvg*10)/10.0 }</span>
+							</div>
+						</c:when>
+						<c:when
+							test="${sdto.svo.rateAvg >= 2.0 && sdto.svo.rateAvg < 4.0 }">
+							<div class="reserve-rating review_warning">
+								<span>${Math.round(sdto.svo.rateAvg*10)/10.0 }</span>
+							</div>
+						</c:when>
+						<c:when test="${sdto.svo.rateAvg >= 4.0 }">
+							<div class="reserve-rating">
+								<span>${Math.round(sdto.svo.rateAvg*10)/10.0 }</span>
+							</div>
+						</c:when>
+					</c:choose>
+				<div class="other_info">
+				<%-- <c:choose>
+					<c:when test="${rate == 0 }">
+						<p>$$$$$</p>
+					</c:when>
+					<c:when test="${rate == 1 }">
+						<p>
+							<span>$</span>$$$$
+						</p>
+					</c:when>
+					<c:when test="${rate == 2 }">
+						<p>
+							<span>$$</span>$$$
+						</p>
+					</c:when>
+					<c:when test="${rate == 3 }">
+						<p>
+							<span>$$$</span>$$
+						</p>
+					</c:when>
+					<c:when test="${rate == 4 }">
+						<p>
+							<span>$$$$</span>$
+						</p>
+					</c:when>
+					<c:when test="${rate == 5 }">
+						<p>
+							<span>$$$$$</span>
+						</p>
+					</c:when>
+				</c:choose>  --%>
+				<p><i class="fa-solid fa-eye"></i>&nbsp; ${sdto.svo.readCount}</p>
+				<p><i class="fa-solid fa-pencil"></i>&nbsp; ${sdto.svo.cmtQty }</p>
+				<p><i class="fa-solid fa-star"></i>&nbsp; ${sdto.svo.likes }</p>
+				</div>
+				
+				<c:if test="${ses.grade eq 99 }">
+				<div>
+					<form action="/store/admit" method="post" enctype="multipart/form-data">
+						<input type="hidden" id="sno" name="sno" value="${sdto.svo.sno }">
+						<input type="hidden" id="approve" name="approve" value="${sdto.svo.approve }">
+						<button type="submit" class="btn btn-outline-success">승인하기</button>
+					</form>
+					
+					<form action="" id="storeRemoveForm" style="display: none;" method="post">
+						<input type="hidden" id="sno_1" value="" name="sno">
+					</form>
+				</div>
+				</c:if>
+				<c:if test="${ses.grade eq 99 }">
+					<div class="btn-form store_delete">
+						<a id="storeRemove"><span id="snoVal">${sdto.svo.sno }</span>번 삭제</a>
+					</div>
+					</c:if>
+			</div>
+			<div class="col-md-7">
+				<div class="reserve-seat-block review_fav">
+				<%-- 	<c:choose>
+						<c:when test="${sdto.svo.rateAvg < 2.0 }">
+							<div class="reserve-rating bg-danger">
+								<span>${Math.round(sdto.svo.rateAvg*10)/10.0 }</span>
+							</div>
+						</c:when>
+						<c:when
+							test="${sdto.svo.rateAvg >= 2.0 && sdto.svo.rateAvg < 4.0 }">
+							<div class="reserve-rating bg-warning">
+								<span>${Math.round(sdto.svo.rateAvg*10)/10.0 }</span>
+							</div>
+						</c:when>
+						<c:when test="${sdto.svo.rateAvg >= 4.0 }">
+							<div class="reserve-rating">
+								<span>${Math.round(sdto.svo.rateAvg*10)/10.0 }</span>
+							</div>
+						</c:when>
+
+					</c:choose> --%>
+					<c:choose> 
+						<c:when test="${ses.email ne null && ses.email ne '' }">
+							<div class="review-btn">
+								<button class="writing_review_btn" onclick="location.href='/review/register?sno=${sdto.svo.sno }'">
+									<i class="fa-solid fa-pencil"></i>
+									<span class="writing_review_btn_text">
+									리뷰쓰기
+									</span>
+								</button>
+							</div>
+						</c:when>
+						<c:otherwise>
+							<div class="review-btn">
+								<button class="writing_review_btn" onclick="location.href='/review/register?sno=${sdto.svo.sno }'">
+									<i class="fa-solid fa-pencil"></i>
+									<span class="writing_review_btn_text">
+									리뷰쓰기
+									</span>
+								</button>
+							</div>
+						</c:otherwise>
+					</c:choose>
+					<div class="review-btn">
+							<c:choose>
+								<c:when test="${ses.email ne null && ses.email ne '' }">
+									<button class="favorite_place_btn" onclick="location.href='/want/register?sno=${sdto.svo.sno}&mno=${ses.mno}'">
+									<i class="fa-solid fa-star"></i>
+									<span class="favorite_place_btn_text">즐겨찾기</span>
+									</button>
+								</c:when>
+								<c:otherwise>
+									<button class="favorite_place_btn" id="login_plz" onclick="location.href='/want/register?sno=${sdto.svo.sno}&mno=${ses.mno}'">
+									<i class="fa-solid fa-star"></i>
+									<span class="favorite_place_btn_text">즐겨찾기</span>
+									</button>
+								</c:otherwise>							
+							</c:choose>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--//END RESERVE A SEAT -->
+<!--============================= BOOKING DETAILS =============================-->
+<section class="light-bg booking-details_wrap">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 responsive-wrap">
+				<div class="booking-checkbox_wrap">
+					<div class="booking-checkbox">
+
+						<p>
+							<i class="fa-solid fa-quote-left"></i>
+							&nbsp;${sdto.svo.content }&nbsp;
+							<i class="fa-solid fa-quote-right"></i>
+						</p>
+						<hr>
+					</div>
+					<div class="row">
+					<div class="col-md-2 foodName mb-2">
+					<i class="fa-solid fa-location-dot"></i>
+						<span class="store_location">주소</span>
+					</div>
+					<div class="col-md-10 foodName">
+						<span>${sdto.svo.locate } </span>
+					</div>
+					<div class="col-md-2 foodName mb-2">
+					<i class="fa-solid fa-phone"></i>
+						<span class="store_tel">전화번호</span>
+					</div>
+					<div class="col-md-10 foodName">
+						<span>${sdto.svo.tel } </span>
+					</div>
+
+						<div class="col-md-2 foodName">
+							<i class="fa-solid fa-book-open"></i>
+								<span class="custom-control-description store_tel">메뉴</span>
+						</div>
+						<c:if test="${sdto.svo.menuName1 ne '-' }">
+							<div class="col-md-3 foodName" style="margin-bottom:-3px;">
+								 <span class="custom-control-description">${sdto.svo.menuName1 } </span>
+							</div>
+							<div class ="col-md-7 foodName" style="margin-bottom:-3px;">
+								<span>${sdto.svo.menuPrice1 }원 </span>
+							</div>
+						</c:if>
+
+						<c:if test="${sdto.svo.menuName2 ne '-' }">
+							<div class="col-md-3 menuName  foodName">
+								<span class="custom-control-description">${sdto.svo.menuName2 } </span>
+							</div>
+							<div class="col-md-7 foodName">
+								<span>${sdto.svo.menuPrice2 }원 </span>
+							</div>
+						</c:if>
+
+						<c:if test="${sdto.svo.menuName3 ne '-' }">
+							<div class="col-md-3 menuName foodName">
+								<span class="custom-control-description">${sdto.svo.menuName3 } </span>
+							</div>
+							<div class="col-md-7 foodName">
+								<span>${sdto.svo.menuPrice3 }원 </span>
+							</div>
+						</c:if>
+
+						<c:if test="${sdto.svo.menuName4 ne '-' }">
+							<div class="col-md-3 menuName foodName">
+								<span class="custom-control-description">${sdto.svo.menuName4 } </span>
+							</div>
+							<div class="col-md-7 foodName">
+								<span>${sdto.svo.menuPrice4 }원 </span>
+							</div>
+						</c:if>
+
+						<c:if test="${sdto.svo.menuName5 ne '-' }">
+							<div class="col-md-3 menuName foodName">
+								<span class="custom-control-description">${sdto.svo.menuName5 } </span>
+							</div>
+							<div class="col-md-7 foodName">
+								<span>${sdto.svo.menuPrice5 }원 </span>
+							</div>
+						</c:if>
+						<fmt:parseDate value='${sdto.svo.modAt }' var='review_modAt' pattern='yyyy-MM-dd'/>
+						
+						<fmt:formatDate pattern="yy년MM월dd일" value="${review_modAt }" var="update"></fmt:formatDate>
+						<div class="col-md-12 updateDate">
+							<label class="custom-checkbox"> <i class="fa-solid fa-arrow-rotate-right"></i> 
+							<span class="custom-control-description">&nbsp; 최근 업데이트 :
+									${update }</span>
+							</label>
+						</div>
+					</div>
+				</div>
+				<!-- 리뷰 -->
+				<div class="booking-checkbox_wrap mt-4 new_review_font">
+					<h5 >리뷰 (${sdto.svo.cmtQty })</h5>
+					<hr>
+					<input type="hidden" id="sno" value="${sdto.svo.sno }">
+
+					<div id="review_list">
+						<c:if test="${sdto.svo.cmtQty eq 0 }">
+							<div>
+								<h5 class="text-center">리뷰가 없습니다. <a href="/review/register?sno=${sdto.svo.sno }" style="color:#ff8a3d;">리뷰를 등록해 주세요</a></h2>
+							</div>
+						</c:if>
+					
+					</div>
+
+				</div>
+			</div>
+			<div class="col-md-4 responsive-wrap">
+				<div class="contact-info">
+					<div id="map" style="width: 100%; height: 300px;"></div>
+
+
+					<div class="address">
+						<span class="icon-location-pin"></span>
+						<p id="store_locate">${sdto.svo.locate }</p>
+					</div>
+					<div class="address">
+						<span class="icon-screen-smartphone"></span>
+						<p>${sdto.svo.tel }</p>
+					</div>
+
+					<div class="address">
+						<span class="icon-clock"></span>
+						
+						<p>${sdto.svo.holiday } 
+							
+							<c:choose>
+								<c:when test="${sdto.svo.holiday eq now_today }">
+									<span class="close-now text-danger">CLOSE NOW</span>
+						</p>
+						</c:when>
+						<c:when test="${sdto.svo.holiday ne now_today }">
+							<span class="open-now text-success">OPEN NOW</span>
+					</p>
+						</c:when>
+						</c:choose>
+					</div>
+					<c:choose>
+						<c:when test="${ses.email ne null && ses.email ne '' }">
+							<a href="/visited/register?mno=${ses.mno }&sno=${sdto.svo.sno}" class="btn btn-contact">방문한 식당</a>
+						</c:when>
+						<c:otherwise>
+							<a class="btn btn-contact " id="login_plz">방문한 식당</a>
+						</c:otherwise>
+					</c:choose>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</section>
+<!--// SLIDER -->
+<script src="/resources/js/review.list.js"></script>
+<script src="/resources/js/store.remove.js"></script>
+<script>
+	get_review_list();
+</script>
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2a6a4dce147848a72131c8aa1b94a055&libraries=services"></script>
+<script type="text/javascript">
+	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	mapOption = {
+		center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+		level : 3
+	// 지도의 확대 레벨
+	};
+
+	//지도를 생성합니다    
+	var map = new kakao.maps.Map(mapContainer, mapOption);
+
+	//주소-좌표 변환 객체를 생성합니다
+	var geocoder = new kakao.maps.services.Geocoder();
+	var local = document.getElementById('store_locate').innerText;
+	var store = document.getElementById('store_name').innerText;
+	//주소로 좌표를 검색합니다
+	geocoder
+			.addressSearch(
+					local,
+					function(result, status) {
+
+						// 정상적으로 검색이 완료됐으면 
+						if (status === kakao.maps.services.Status.OK) {
+
+							var coords = new kakao.maps.LatLng(result[0].y,
+									result[0].x);
+
+							// 결과값으로 받은 위치를 마커로 표시합니다
+							var marker = new kakao.maps.Marker({
+								map : map,
+								position : coords
+							});
+
+							// 인포윈도우로 장소에 대한 설명을 표시합니다
+							var infowindow = new kakao.maps.InfoWindow(
+									{
+										content : '<div style="width:150px;text-align:center;padding:6px 0;">'
+												+ store + '</div>'
+									});
+							infowindow.open(map, marker);
+
+							// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+							map.setCenter(coords);
+						}
+					});
+</script>
+<!-- Magnific popup JS -->
+<script src="/resources/dist/js/jquery.magnific-popup.js"></script>
+<!-- Swipper Slider JS -->
+<script src="/resources/dist/js/swiper.min.js"></script>
+<script>
+	var swiper = new Swiper('.swiper-container', {
+		slidesPerView : 3,
+		slidesPerGroup : 3,
+		loop : true,
+		loopFillGroupWithBlank : true,
+		pagination : {
+			el : '.swiper-pagination',
+			clickable : true,
+		},
+		navigation : {
+			nextEl : '.swiper-button-next',
+			prevEl : '.swiper-button-prev',
+		},
+	});
+</script>
+<script>
+	if ($('.image-link').length) {
+		$('.image-link').magnificPopup({
+			type : 'image',
+			gallery : {
+				enabled : true
+			}
+		});
+	}
+	if ($('.image-link2').length) {
+		$('.image-link2').magnificPopup({
+			type : 'image',
+			gallery : {
+				enabled : true
+			}
+		});
+	}
+</script>
+<script type="text/javascript">
+document.getElementById('login_plz').addEventListener('click', (e)=>{
+	alert("로그인 해주세요");
+});
+
+
+</script>
+<script type="text/javascript">
+let visit_ok = '<c:out value="${visit_ok}"/>';
+let visit_no = '<c:out value="${visit_no}"/>';
+if(visit_ok){
+	alert("방문한 식당을 등록했습니다");
+}
+if(visit_no){
+	alert("이미 방문한 식당에 등록되어 있습니다");
+}
+</script>
+<script type="text/javascript">
+let want_ok = '<c:out value="${want_ok}"/>';
+let want_no = '<c:out value="${want_no}"/>';
+let want_check = '<c:out value="${want_check}"/>';
+if(want_ok){
+	alert("즐겨찾기에 등록했습니다.");
+}
+if(want_no){
+	alert("즐겨찾기 등록을 실패 했습니다.");
+}
+if(want_check){
+	alert("즐겨찾기가 이미 등록되어 있습니다.");
+}
+</script>
+<jsp:include page="../common/footer.jsp" />

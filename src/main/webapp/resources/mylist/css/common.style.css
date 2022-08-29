@@ -1,0 +1,66 @@
+#nav_bar.active{
+    background:rgba(255,113,0,0.7);
+    transition:0.5s;
+}
+
+#listHead{
+	margin-top: 50px;
+
+}
+#listBody {
+	margin-top: 80px;
+}
+#listBody a{
+	margin-top:3px;
+	box-shadow: 3px 3px 3px gray;
+}
+#boardlist{
+	margin-bottom:30px;
+	padding-left:50px;
+}
+.page-buttons{
+	height:50px;
+	margin-bottom:30px;
+}
+#boardsearch{
+	padding-left: 80px;
+    padding-right: 0px;
+    margin-top: 50px;
+}
+#searchID{
+	box-shadow:3px;
+	border:solid 1px gray;
+	margin-right:16px;
+}
+#boardhead{
+	margin-left:0px;
+	background-image: url('/resources/mylist/photo/board.jpg');
+	background-size:cover;
+	background-position: center center;
+	padding-bottom:30px;
+}
+#boardtitle{
+	margin-top:80px;
+    padding-left: 100px;
+    margin-top: 100px;
+	
+}
+#boardtitle div h1{
+	color:white;
+}
+#boardtitle div p{
+	color:white;
+}
+
+div.input-group-append{
+	margin-right:60px;
+}
+#boardline{
+    margin-right: 150px;
+    margin-left: 50px;
+    background-color:rgba(255,113,0,0.2);
+}
+div.board-pic img {
+	left:500px;
+}
+
