@@ -11,7 +11,8 @@ Mangoplate Clone Web Application using Spring<br/>
 ### 메인화면 맛집 리스트, 검색 기능 
 <img src="https://user-images.githubusercontent.com/87024040/220259456-3adf8bfb-5f34-48f5-8d04-3167de6205ea.gif" />
 
-### 게시판 / 게시판 등록 화면
+### 회원가입 / 로그인 기능 
+<img src="https://user-images.githubusercontent.com/87024040/220259714-1991ca8d-5332-48d3-810d-3b8299b1b971.gif" />
 
 ## DataBase 
 >
