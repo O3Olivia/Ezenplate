@@ -31,11 +31,29 @@
 <br/>
 <br/>
 
+## 👨‍👨‍👦‍👦 팀원 소개
+<table>
+<tr>
+<td align="center"><img src="https://user-images.githubusercontent.com/87024040/232558585-6fe26b3d-2de0-467b-9e21-76a585b1e6da.png" width="100px" /></td>
+<td align="center"><img src="https://user-images.githubusercontent.com/87024040/232558585-6fe26b3d-2de0-467b-9e21-76a585b1e6da.png" width="100px" /></td>
+<td align="center"><img src="https://user-images.githubusercontent.com/87024040/232558585-6fe26b3d-2de0-467b-9e21-76a585b1e6da.png" width="100px" /></td>
+<td align="center"><img src="https://user-images.githubusercontent.com/87024040/232558585-6fe26b3d-2de0-467b-9e21-76a585b1e6da.png" width="100px" /></td>
+<td align="center"><img src="https://user-images.githubusercontent.com/87024040/232558585-6fe26b3d-2de0-467b-9e21-76a585b1e6da.png" width="100px" /></td>
+</tr>
+<tr>
+  <td align="center"><a href="https://github.com/mansekim"><b>김세민</b></a></td>
+  <td align="center"><a href="https://github.com/woogi666"><b>김성우</b></a></td>
+  <td align="center"><a href="https://github.com/O3Olivia"><b>이슬기</b></a></td>
+  <td align="center"><a href="https://github.com/azz1019"><b>이혜경</b></a></td>
+  <td align="center"><a href="https://github.com/X2X2XE"><b>한경찬</b></a></td>
+</tr>
+</table>
+
 ## 🛠 맡은 역할
-- Bootstrap을 활용해 프로젝트 전체 디자인 및 마크업 담당
-- MySql로 게시판 DB 생성
-- Spring으로 게시판 기능 구현
-- Slack과 Notion으로 프로젝트 문서, 일정 관리
+- `Bootstrap`을 활용해 **프로젝트 전체 디자인 및 마크업** 담당
+- `MySql`로 **게시판 DB** 생성
+- `Spring`으로 **게시판 기능** 구현
+- `Slack`과 `Notion`, `google driver`로 **프로젝트 문서, 일정 관리**
 
 ## 🚀 사용 기술
 <table>
@@ -106,22 +124,4 @@
 - 디자인과 기능이 지속적으로 변경됨에 따라 `header`, `footer`, `navigation` 레이아웃을 **재사용**할 수 있도록 모듈화했습니다.
 - 공통 부분을 `common`폴더를 생성해 관리했으며, 해당 부분이 필요한 경우 import하여 사용할 수 있도록 변경했습니다.
 - 해당 코드를 재사용할 수 있게되면서 불필요한 **코드 중복**을 없애고, 디자인과 기능을 통일화시켰습니다.
-
-## 👨‍👨‍👦‍👦 팀원 소개
-<table>
-<tr>
-<td align="center"><img src="https://user-images.githubusercontent.com/87024040/232558585-6fe26b3d-2de0-467b-9e21-76a585b1e6da.png" width="100px" /></td>
-<td align="center"><img src="https://user-images.githubusercontent.com/87024040/232558585-6fe26b3d-2de0-467b-9e21-76a585b1e6da.png" width="100px" /></td>
-<td align="center"><img src="https://user-images.githubusercontent.com/87024040/232558585-6fe26b3d-2de0-467b-9e21-76a585b1e6da.png" width="100px" /></td>
-<td align="center"><img src="https://user-images.githubusercontent.com/87024040/232558585-6fe26b3d-2de0-467b-9e21-76a585b1e6da.png" width="100px" /></td>
-<td align="center"><img src="https://user-images.githubusercontent.com/87024040/232558585-6fe26b3d-2de0-467b-9e21-76a585b1e6da.png" width="100px" /></td>
-</tr>
-<tr>
-  <td align="center"><a href="https://github.com/mansekim"><b>김세민</b></a></td>
-  <td align="center"><a href="https://github.com/woogi666"><b>김성우</b></a></td>
-  <td align="center"><a href="https://github.com/O3Olivia"><b>이슬기</b></a></td>
-  <td align="center"><a href="https://github.com/azz1019"><b>이혜경</b></a></td>
-  <td align="center"><a href="https://github.com/X2X2XE"><b>한경찬</b></a></td>
-</tr>
-</table>
 <br />
