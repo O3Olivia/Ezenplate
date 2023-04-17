@@ -108,7 +108,7 @@
 - 해당 코드를 재사용할 수 있게되면서 불필요한 **코드 중복**을 없애고, 디자인과 기능을 통일화시켰습니다.
 
 ## 👨‍👨‍👦‍👦 팀원 소개
-<table align='center'>
+<table>
 <tr>
 <td align="center"><img src="https://user-images.githubusercontent.com/87024040/232558585-6fe26b3d-2de0-467b-9e21-76a585b1e6da.png" width="100px" /></td>
 <td align="center"><img src="https://user-images.githubusercontent.com/87024040/232558585-6fe26b3d-2de0-467b-9e21-76a585b1e6da.png" width="100px" /></td>
