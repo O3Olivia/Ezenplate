@@ -23,31 +23,13 @@
 
 
 ## 📈 Database 설계
-<img width="1263" alt="스크린샷 2023-04-18 오전 12 54 09" src="https://user-images.githubusercontent.com/87024040/232542065-ab07e642-5283-4a84-bca4-815a6c9da1a6.png">
-<img width="1263" alt="스크린샷 2023-04-18 오전 12 55 10" src="https://user-images.githubusercontent.com/87024040/232542220-1a50e60c-117c-40ed-88bc-ebd56cdc15f2.png">
-<img width="1263" alt="스크린샷 2023-04-18 오전 12 56 12" src="https://user-images.githubusercontent.com/87024040/232542473-81a9e10d-d1f3-4d7d-a31c-75ccdd5d3832.png">
-<img width="1263" alt="스크린샷 2023-04-18 오전 12 56 43" src="https://user-images.githubusercontent.com/87024040/232542609-a4fc5d0e-e5bb-465d-87b9-f8c72e70c100.png">
+<img width="800" src="https://user-images.githubusercontent.com/87024040/232542065-ab07e642-5283-4a84-bca4-815a6c9da1a6.png">
+<img width="800" src="https://user-images.githubusercontent.com/87024040/232542220-1a50e60c-117c-40ed-88bc-ebd56cdc15f2.png">
+<img width="800" src="https://user-images.githubusercontent.com/87024040/232542473-81a9e10d-d1f3-4d7d-a31c-75ccdd5d3832.png">
+<img width="800" src="https://user-images.githubusercontent.com/87024040/232542609-a4fc5d0e-e5bb-465d-87b9-f8c72e70c100.png">
 
 <br/>
 <br/>
-
-## 👨‍👨‍👦‍👦 팀원 소개
-<table>
-<tr>
-<td align="center"><img src="https://user-images.githubusercontent.com/87024040/232558585-6fe26b3d-2de0-467b-9e21-76a585b1e6da.png" width="100px" /></td>
-<td align="center"><img src="https://user-images.githubusercontent.com/87024040/232558585-6fe26b3d-2de0-467b-9e21-76a585b1e6da.png" width="100px" /></td>
-<td align="center"><img src="https://user-images.githubusercontent.com/87024040/232558585-6fe26b3d-2de0-467b-9e21-76a585b1e6da.png" width="100px" /></td>
-<td align="center"><img src="https://user-images.githubusercontent.com/87024040/232558585-6fe26b3d-2de0-467b-9e21-76a585b1e6da.png" width="100px" /></td>
-<td align="center"><img src="https://user-images.githubusercontent.com/87024040/232558585-6fe26b3d-2de0-467b-9e21-76a585b1e6da.png" width="100px" /></td>
-</tr>
-<tr>
-  <td align="center"><a href="https://github.com/mansekim"><b>김세민</b></a></td>
-  <td align="center"><a href="https://github.com/woogi666"><b>김성우</b></a></td>
-  <td align="center"><a href="https://github.com/O3Olivia"><b>이슬기</b></a></td>
-  <td align="center"><a href="https://github.com/azz1019"><b>이혜경</b></a></td>
-  <td align="center"><a href="https://github.com/X2X2XE"><b>한경찬</b></a></td>
-</tr>
-</table>
 
 ## 🛠 맡은 역할
 - `Bootstrap`을 활용해 **프로젝트 전체 디자인 및 마크업** 담당
@@ -125,3 +107,22 @@
 - 공통 부분을 `common`폴더를 생성해 관리했으며, 해당 부분이 필요한 경우 import하여 사용할 수 있도록 변경했습니다.
 - 해당 코드를 재사용할 수 있게되면서 불필요한 **코드 중복**을 없애고, 디자인과 기능을 통일화시켰습니다.
 <br />
+<br />
+
+## 👨‍👨‍👦‍👦 팀원 소개
+<table>
+<tr>
+<td align="center"><img src="https://user-images.githubusercontent.com/87024040/232558585-6fe26b3d-2de0-467b-9e21-76a585b1e6da.png" width="100px" /></td>
+<td align="center"><img src="https://user-images.githubusercontent.com/87024040/232558585-6fe26b3d-2de0-467b-9e21-76a585b1e6da.png" width="100px" /></td>
+<td align="center"><img src="https://user-images.githubusercontent.com/87024040/232558585-6fe26b3d-2de0-467b-9e21-76a585b1e6da.png" width="100px" /></td>
+<td align="center"><img src="https://user-images.githubusercontent.com/87024040/232558585-6fe26b3d-2de0-467b-9e21-76a585b1e6da.png" width="100px" /></td>
+<td align="center"><img src="https://user-images.githubusercontent.com/87024040/232558585-6fe26b3d-2de0-467b-9e21-76a585b1e6da.png" width="100px" /></td>
+</tr>
+<tr>
+  <td align="center"><a href="https://github.com/mansekim"><b>김세민</b></a></td>
+  <td align="center"><a href="https://github.com/woogi666"><b>김성우</b></a></td>
+  <td align="center"><a href="https://github.com/O3Olivia"><b>이슬기</b></a></td>
+  <td align="center"><a href="https://github.com/azz1019"><b>이혜경</b></a></td>
+  <td align="center"><a href="https://github.com/X2X2XE"><b>한경찬</b></a></td>
+</tr>
+</table>
